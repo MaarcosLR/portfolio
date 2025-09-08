@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Header.css';
-import Home from '../static/casa.png';
 
 const links = [
-  { id: 'home', label: 'Home', isLogo: true },
   { id: 'about', label: 'Sobre mí' },
   { id: 'skills', label: 'Skills' },
   { id: 'proyects', label: 'Proyectos' },
@@ -11,17 +9,16 @@ const links = [
 ];
 
 function Header() {
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState('about');
   const [scrolled, setScrolled] = useState(false);
   const headerHeight = 50;
 
-  // Scroll spy + detectar scroll para sombra
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      setScrolled(scrollY > 0); // true si estamos scrolleando
+      setScrolled(scrollY > 0);
 
-      let closestSection = 'home';
+      let closestSection = 'about';
       let minDistance = Infinity;
 
       links.forEach(link => {
@@ -59,10 +56,10 @@ function Header() {
         <a
           key={link.id}
           href={`#${link.id}`}
-          className={`${link.isLogo ? 'logo' : ''} ${activeLink === link.id ? 'active' : ''}`}
+          className={activeLink === link.id ? 'active' : ''}
           onClick={handleClick(link.id)}
         >
-          {link.isLogo ? <img src={Home} alt="Home" /> : link.label}
+          {link.label}
         </a>
       ))}
     </nav>

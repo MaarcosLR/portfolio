@@ -1,88 +1,15 @@
-.App-header {
+.App-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255);
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
-
-.App-nav {
-  display: flex;
-  align-items: center;
   gap: 1.5rem;
-  background: transparent;
-  padding: 1rem 2rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Logo */
-.App-nav .logo {
-  position: relative;
-  display: inline-block;
-}
-
-.App-nav .logo img {
-  height: 30px;
-  width: auto;
-  display: block;
-  filter: invert(1);
-  transition: transform 0.3s;
-}
-
-.App-nav .logo:hover img {
-  transform: scale(1.05); /* ligero zoom opcional al hover */
-}
-
-/* Línea degradada / glow para el logo */
-.App-nav .logo::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff50b4, #6eafff);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-  z-index: -1;
-}
-
-.App-nav .logo:hover::after,
-.App-nav .logo.active::after {
-  transform: scaleX(1); /* aparece al hover o si está activo */
-}
-
-/* Enlaces */
-.App-nav a {
-  position: relative; /* necesario para ::after */
-  text-decoration: none;
-  color: white;
-  padding: 0.2rem 0.5rem;
-  transition: color 0.3s;
-}
-
-/* Línea degradada para enlaces */
-.App-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px; /* justo debajo del texto */
-  width: 100%;
-  height: 3px; /* grosor de la línea */
-  background: linear-gradient(90deg, #ff50b4, #6eafff); /* degradado */
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.App-nav a:hover::after,
-.App-nav a.active::after {
-  transform: scaleX(1); /* aparece al hover o si está activo */
+  padding: 0 2rem;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .App-nav.scrolled {
@@ -90,3 +17,28 @@
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
+.App-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.App-nav a.active::after,
+.App-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.App-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff50b4, #6eafff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}

@@ -1,26 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
-import Body from './components/Body';
+import BodyPresentation from './components/BodyPresentation';
+import SkillsSection from './components/SkillsSection';
+import ProjectsSection from './components/ProjectsSection';
+import ContactSection from './components/ContactSection';
 
 function App() {
   return (
     <div className="App">
-      <div className="App-header" id="home">
       <Header />
-      </div>
-      <div className="App-body" id="about">
-      <Body />
-      </div>
-      <div className="App-body" id="skills">
-        <Body />
-      </div>
-      <div className="App-body" id="proyects">
-        <Body />
-      </div>
-      <div className="App-body" id="contact">
-        <Body />
-      </div>
+
+      <section id="about" className="section">
+        <BodyPresentation />
+      </section>
+
+      <section id="skills" className="section">
+        <SkillsSection />
+      </section>
+
+      <section id="proyects" className="section">
+        <ProjectsSection />
+      </section>
+
+      <section id="contact" className="section">
+        <ContactSection />
+      </section>
     </div>
   );
 }
